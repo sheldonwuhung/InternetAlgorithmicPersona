@@ -45,11 +45,11 @@ async function send() {
     });
 
     try {
-      const data = await response.json();
-      if (!response.ok) console.log("oh no");
-      console.log(data.result); 
+        const data = await response.json();
+        if (!response.ok) console.log("oh no");
+        console.log(data.result); 
     } catch (error) {
-      console.log(error);
+        console.log(error);
     }
 }
 
