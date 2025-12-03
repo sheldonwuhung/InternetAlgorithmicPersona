@@ -13,6 +13,10 @@ export default async function handler(req, res) {
 
         let parts = [];
 
+        if (!images || !Array.isArray(images) || images.length === 0) {
+            return res.status(400).json({ error: "No images provided" });
+        }
+
         for (const img of images) {
             parts.push({
                 inlineData: {
@@ -24,7 +28,7 @@ export default async function handler(req, res) {
         console.log(parts);
         const result = await ai.models.generateContent({
             model: "gemini-2.5-flash",
-            contents: createUserContent([{prompt, ...parts}])
+            contents: createUserContent([prompt, ...parts])
         });
 
         res.status(200).json({ result: result.text });
