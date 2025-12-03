@@ -10,7 +10,6 @@ export default async function handler(req, res) {
         const { prompt, images } = req.body;
         console.log(images);
         const ai = new GoogleGenAI(process.env.GEMINI_API_KEY);
-        console.log(process.env.GEMINI_API_KEY);
 
         let parts = [];
 
