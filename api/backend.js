@@ -5,11 +5,12 @@
 // dotenv.config();
 
 import { GoogleGenAI, createUserContent } from "@google/genai";
+import { parseEnv } from "node:util";
 
 export default async function handler(req, res) {
     try {
         const { prompt, images } = req.body;
-
+        console.log(images);
         const ai = new GoogleGenAI(process.env.GEMINI_API_KEY);
 
         let parts = [];
@@ -22,7 +23,7 @@ export default async function handler(req, res) {
                 }
             });
         }
-
+        console.log(parts);
         const result = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: createUserContent([{prompt, ...parts}])
