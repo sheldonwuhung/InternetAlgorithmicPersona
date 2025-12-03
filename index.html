@@ -49,12 +49,16 @@
 
             <div id="drop-zone-outer" class="grid-center">
                 <div id="drop-zone-inner" class="grid-center">
-                    <button id="files-button">
-                        <label for="file-input">Upload or Drag Files</label>
-                        <input type="file" id="file-input" name="file-input" multiple hidden>
-                    </button>
-                    <button id="clear-btn">Clear</button>
-                    <ul id="preview"></ul>
+                    <div id="drop-zone-buttons">
+                        <button id="files-button">
+                            <label for="file-input">Upload or Drag Files</label>
+                            <input type="file" id="file-input" name="file-input" multiple hidden>
+                        </button>
+                        <button id="clear-btn">Clear</button>
+                    </div>
+                    <div id="drop-zone-images">
+                        <ul id="preview"></ul>
+                    </div>
                 </div>
             </div>
 
@@ -69,6 +73,7 @@
 
     <script src="drag&drop.js"></script>
     <script src="general.js"></script>
+    <script type="module" src="gemini.js"></script>
 </body>
 
 </html>
