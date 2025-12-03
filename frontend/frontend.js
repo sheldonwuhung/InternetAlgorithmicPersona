@@ -41,11 +41,16 @@ async function send() {
     const response = await fetch("https://internet-algorithmic-persona.vercel.app/api/backend", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt, images: images })
+        body: JSON.stringify({ prompt, images })
     });
 
-    const data = await response.json();
-    console.log(data.result);
+    try {
+      const data = await response.json();
+      if (!response.ok) console.log("oh no");
+      console.log(data.result); 
+    } catch (error) {
+      console.log("error")
+    }
 }
 
 document.getElementById("get-report-button").addEventListener('click', () => send());
