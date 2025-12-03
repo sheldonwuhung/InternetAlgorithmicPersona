@@ -37,11 +37,11 @@ async function send() {
                 which best represent this person using the images provided.`;
 
     const images = await filesToBase64Array(files);
-console.log(images);
+
     const response = await fetch("https://internet-algorithmic-persona.vercel.app/api/backend", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt, images })
+        body: JSON.stringify({ prompt, images: images })
     });
 
     const data = await response.json();
