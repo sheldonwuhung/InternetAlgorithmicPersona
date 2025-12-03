@@ -43,6 +43,9 @@ async function send() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt, images })
     });
+
+    const data = await response.json();
+    console.log(data.result);
 }
 
 document.getElementById("get-report-button").addEventListener('click', () => send());
