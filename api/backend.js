@@ -1,11 +1,9 @@
 // import {GoogleGenAI, createUserContent} from "@google/genai";
 // import * as fs from "node:fs";
-// import dotenv from "dotenv";
-
-// dotenv.config();
+import dotenv from "dotenv";
+dotenv.config();
 
 import { GoogleGenAI, createUserContent } from "@google/genai";
-import { parseEnv } from "node:util";
 
 export default async function handler(req, res) {
     try {
