@@ -1,7 +1,7 @@
 // import {GoogleGenAI, createUserContent} from "@google/genai";
 // import * as fs from "node:fs";
-import dotenv from "dotenv";
-dotenv.config();
+// import dotenv from "dotenv";
+// dotenv.config();
 
 import { GoogleGenAI, createUserContent } from "@google/genai";
 
@@ -10,6 +10,7 @@ export default async function handler(req, res) {
         const { prompt, images } = req.body;
         console.log(images);
         const ai = new GoogleGenAI(process.env.GEMINI_API_KEY);
+        console.log(process.env.GEMINI_API_KEY);
 
         let parts = [];
 
