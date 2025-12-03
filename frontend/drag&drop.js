@@ -40,7 +40,7 @@ function displayImages(files) {
     const img = document.createElement("img");
 
     if (file.type.startsWith("image/")) img.src = URL.createObjectURL(file);
-    else img.src = "imgs/placeholder.png";
+    else img.src = "../imgs/placeholder.png";
 
     img.alt = file.name;
     li.appendChild(img);

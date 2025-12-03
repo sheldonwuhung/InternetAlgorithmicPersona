@@ -38,7 +38,7 @@ async function send() {
 
     const images = await filesToBase64Array(files);
 
-    const response = await fetch("https://internet-algorithmic-persona.vercel.app/backend.js", {
+    const response = await fetch("https://internet-algorithmic-persona.vercel.app/api/backend", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt, images })
