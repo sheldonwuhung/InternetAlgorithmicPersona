@@ -45,4 +45,4 @@ async function send() {
     });
 }
 
-document.getElementById("get-report-button").addEventListener('click', () => sendPrompt());
+document.getElementById("get-report-button").addEventListener('click', () => send());
