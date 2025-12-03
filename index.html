@@ -11,8 +11,64 @@
 
 <body>
 
-    
+    <nav id="nav">
+        <div id="nav-div1">
+            <h3>Internet & Algorithmic Persona</h3>
+        </div>
+        <div id="nav-div2">
+            <h3>By Sheldon Hung</h3>
+        </div>
+    </nav>
 
+    <div class="main-div">
+
+        <section id="section-1" class="section-container margin-center">
+            <h1 class="margin-center">Internet & Algorithmic Persona</h1>
+            <h2 class="margin-center">About</h2>
+
+            <p>
+                The internet is a medium of how people can express themselves. Think of platforms like social media, shopping sites, music listening apps, and games are an every day reliance. 
+                These are all filled with algorithms which process decisions and provide data which they believe most appeals to the user. 
+            </p>
+
+            <p>
+                Internet & Algorithmic Persona’s purpose is to answer the question on whether these decisions and the data presented back from using these platforms and apps are an accurate representation of the users. 
+                It can be different from how they are in real life and it is often surprising to see the contrast.
+            </p>
+
+            <button id="get-started-button">Get Started</button>
+
+        </section>
+
+        <section id="section-2" class="section-container margin-center">
+            <h2 id="first-scroll" class="margin-center">Upload Your Internet Presence</h2>
+            
+            <p>
+                Social media, Instagram & TikTok pages & explorations, LinkedIn, Spotify/music playlists, online purchases, search histories, games, etc.</p>
+            </p>
+
+            <div id="drop-zone-outer" class="grid-center">
+                <div id="drop-zone-inner" class="grid-center">
+                    <button id="files-button">
+                        <label for="file-input">Upload or Drag Files</label>
+                        <input type="file" id="file-input" name="file-input" multiple hidden>
+                    </button>
+                    <button id="clear-btn">Clear</button>
+                    <ul id="preview"></ul>
+                </div>
+            </div>
+
+            <button id="get-report-button">Get Your Identity Report</button>
+        </section>
+
+        <section id="section-3" class="section-container">
+
+        </section>
+
+    </div>
+
+    <script src="drag&drop.js"></script>
+    <script src="general.js"></script>
 </body>
 
 </html>
