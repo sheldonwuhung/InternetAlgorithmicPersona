@@ -31,11 +31,14 @@ export default async function handler(req, res) {
             contents: createUserContent([{prompt, ...parts}])
         });
 
+        console.log(result.response.text());
+
         res.status(200).json({ result: result.response.text() });
 
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: "Server error" });
+        console.log("error");
     }
 }
 
