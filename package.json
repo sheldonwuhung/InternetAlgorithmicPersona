@@ -1,4 +1,11 @@
 {
+  "name": "internet-algorithmic-persona",
+  "version": "1.0.0",
+  "type": "module", 
+  "main": "api/backend.js",
+  "scripts": {
+    "start": "node api/backend.js"
+  },
   "dependencies": {
     "@google/genai": "^1.31.0",
     "dotenv": "^17.2.3"
