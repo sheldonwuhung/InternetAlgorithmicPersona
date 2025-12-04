@@ -83,7 +83,7 @@ async function send() {
 
       dataP.innerHTML = data.result;
 
-      tryAgainButton.style.display = "block";
+      tryAgainButton.style.display = "inline";
       // console.log(data.result); 
   } catch (error) {
     // console.log();
