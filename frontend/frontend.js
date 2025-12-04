@@ -58,12 +58,11 @@ async function send() {
               Provide an identity report.
               
               Technical Instructions: The identity report should be split into the following
-              topics: (Personality, Behavior) and feel free to add additional topics
-              which best represent this person using the images provided.
-              This text will be put into an innerHTML of a paragraph HTML
-              element. Provide proper line breaks within this text in the form of "<br>".
-              Use proper HTML syntax such as putting words in between <b> and </b> to bold
-              them instead of using astericks`;
+              topics if applicable: (Personality, Communities). Add a maximum of 5 additional 
+              topics which best represent this person using the images provided. This text will 
+              be put into an innerHTML of a paragraph HTML element. Provide proper line breaks 
+              within this text in the form of "<br>". Use proper HTML syntax such as putting words 
+              in between <b> and </b> to bold them instead of using astericks`;
 
   const images = await filesToBase64Array(files);
 
@@ -76,10 +75,6 @@ async function send() {
   try {
       const data = await response.json();
       if (!response.ok) console.log("oh no");
-
-      // const newString1 = data.result.replaceAll("***", "<br>");
-      // const newString2 = data.result.replaceAll("**", "<br>");
-      // const newString3 = data.result.replaceAll("*", "<br>");
 
       dataP.innerHTML = data.result;
 
