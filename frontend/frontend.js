@@ -63,7 +63,7 @@ async function send() {
 
         const newString = data.result.replaceAll("*", "<br>");
 
-        dataP.textContent = newString;
+        dataP.innerHTML = newString;
         dataP.style.display = "block";
         // console.log(data.result); 
     } catch (error) {
