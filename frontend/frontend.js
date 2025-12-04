@@ -69,6 +69,7 @@ async function send() {
       if (!response.ok) console.log("oh no");
 
       dataP.style.display = "block";
+      dataP.innerHTML = "Creating Identity Report...";
 
       const newString1 = data.result.replaceAll("***", "<br>");
       const newString2 = data.result.replaceAll("**", "<br>");
