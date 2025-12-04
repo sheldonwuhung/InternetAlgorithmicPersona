@@ -48,13 +48,17 @@ async function send() {
   const input = document.getElementById("file-input");
   const files = input.files;
 
-  const prompt = `The internet is a medium of how people can express themselves. 
+  const prompt = `Prompt Instructions: The internet is a medium of how people can express themselves. 
               They can use it for platforms like social media, shopping sites, 
               music listening apps, and games, making it an every day reliance. 
               The images provided are a person's presence or usage of the internet. 
-              Provide an identity report consisting of the following topics: 
-              (Personality, Behavior) and feel free to add additional topics
-              which best represent this person using the images provided.`;
+              Provide an identity report.
+              
+              Technical Instructions: The identity report should be split into the following
+              topics: (Personality, Behavior) and feel free to add additional topics
+              which best represent this person using the images provided.
+              This text will be put into an innerHTML of a paragraph HTML
+              element. Provide proper line breaks within this text in the form of "<br>".`;
 
   const images = await filesToBase64Array(files);
 
