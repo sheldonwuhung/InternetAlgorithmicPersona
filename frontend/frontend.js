@@ -61,10 +61,12 @@ async function send() {
         const data = await response.json();
         if (!response.ok) console.log("oh no");
 
-        const newString = data.result.replaceAll("*", "<br>");
-
-        dataP.innerHTML = newString;
         dataP.style.display = "block";
+
+        const newString = data.result.replaceAll("*", "<br>");
+        dataP.innerHTML = newString;
+
+        tryAgainButton.style.display = "block";
         // console.log(data.result); 
     } catch (error) {
       // console.log();
