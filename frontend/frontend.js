@@ -48,6 +48,9 @@ async function send() {
   const input = document.getElementById("file-input");
   const files = input.files;
 
+  dataP.style.display = "block";
+  dataP.textContent = "Creating Identity Report...";
+
   const prompt = `Prompt Instructions: The internet is a medium of how people can express themselves. 
               They can use it for platforms like social media, shopping sites, 
               music listening apps, and games, making it an every day reliance. 
@@ -73,10 +76,6 @@ async function send() {
   try {
       const data = await response.json();
       if (!response.ok) console.log("oh no");
-
-      dataP.style.display = "block";
-      console.log("ewdsavbew");
-      dataP.textContent = "Creating Identity Report...";
 
       // const newString1 = data.result.replaceAll("***", "<br>");
       // const newString2 = data.result.replaceAll("**", "<br>");
