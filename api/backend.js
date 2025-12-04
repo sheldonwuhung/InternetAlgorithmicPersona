@@ -44,6 +44,7 @@ export default async function handler(req, res) {
     }
 }
 
+
 // const prompt = `The internet is a medium of how people can express themselves. 
 //                 They can use it for platforms like social media, shopping sites, 
 //                 music listening apps, and games, making it an every day reliance. 
