@@ -60,6 +60,7 @@ async function send() {
     try {
         const data = await response.json();
         if (!response.ok) console.log("oh no");
+        dataP.textContent = data.result;
         dataP.style.display = "block";
         // console.log(data.result); 
     } catch (error) {
