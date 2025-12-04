@@ -1,12 +1,12 @@
 const dataP = document.getElementById("data-p");
 const tryAgainButton = document.getElementById("try-again-button");
 const getReportButton = document.getElementById("get-report-button");
-const header2 = document.getElementById("first-scroll");
+const header_2 = document.getElementById("first-scroll");
 
 function tryAgain() {
   window.location.reload()
 
-  const location = header2.getBoundingClientRect();
+  const location = header_2.getBoundingClientRect();
   let y = location.top + window.scrollY;
   window.scrollTo({ top: y, left: 0, behavior: 'smooth' });
 }
