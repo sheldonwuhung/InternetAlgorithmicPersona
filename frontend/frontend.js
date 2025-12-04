@@ -60,6 +60,9 @@ async function send() {
     try {
         const data = await response.json();
         if (!response.ok) console.log("oh no");
+
+        const newString = data.result.replaceAll("*", "<br>");
+
         dataP.textContent = data.result;
         dataP.style.display = "block";
         // console.log(data.result); 
