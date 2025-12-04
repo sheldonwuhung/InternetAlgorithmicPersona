@@ -40,7 +40,10 @@ function fileToBase64(file) {
 }
 
 async function send() {
-  if (sending) return;
+  if (sending) {
+    console.log("Please wait before submitting another request");
+    return;
+  }
   sending = true;
   const input = document.getElementById("file-input");
   const files = input.files;
