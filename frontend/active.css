@@ -57,7 +57,7 @@ body {
                 margin-bottom: 2%;
             }
 
-            #get-started-button {
+            #get-started-button, #try-again-button {
                 padding: 1%;
                 width: 12.5%;
                 font-size: 1em;
@@ -66,6 +66,10 @@ body {
 
                 border-radius: 10px;
                 /* background-color: beige; */
+            }
+
+            #data-p, #try-again-button {
+                display:none;
             }
 
             #get-report-button {

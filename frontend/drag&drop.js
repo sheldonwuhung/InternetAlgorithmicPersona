@@ -60,13 +60,10 @@ const fileInput = document.getElementById("file-input");
 fileInput.addEventListener("change", (e) => {
   displayImages(e.target.files);
 });
-const clearBtn = document.getElementById("clear-btn");
+const clearBtn = document.getElementById("clear-button");
 clearBtn.addEventListener("click", () => {
   for (const img of preview.querySelectorAll("img")) {
     URL.revokeObjectURL(img.src);
   }
   preview.textContent = "";
 });
-
-
-console.log('d')

@@ -1,3 +1,16 @@
+const dataP = document.getElementById("data-p");
+const tryAgainButton = document.getElementById("try-again-button");
+const getReportButton = document.getElementById("get-report-button");
+const header2 = document.getElementById("first-scroll");
+
+function tryAgain() {
+  window.location.reload()
+
+  const location = header2.getBoundingClientRect();
+  let y = location.top + window.scrollY;
+  window.scrollTo({ top: y, left: 0, behavior: 'smooth' });
+}
+
 async function filesToBase64Array(files) {
   const base64Array = [];
 
@@ -47,11 +60,13 @@ async function send() {
     try {
         const data = await response.json();
         if (!response.ok) console.log("oh no");
-        console.log(data.result); 
+        dataP.style.display = "block";
+        // console.log(data.result); 
     } catch (error) {
       // console.log();
         console.log(error);
     }
 }
 
-document.getElementById("get-report-button").addEventListener('click', () => send());
+getReportButton.addEventListener('click', () => send());
+tryAgainButton.addEventListener('click', () => tryAgain());
