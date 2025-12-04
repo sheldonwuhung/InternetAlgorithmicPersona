@@ -3,6 +3,8 @@ const tryAgainButton = document.getElementById("try-again-button");
 const getReportButton = document.getElementById("get-report-button");
 const header_2 = document.getElementById("first-scroll");
 
+let sending = false;
+
 function tryAgain() {
   window.location.reload()
 
@@ -38,43 +40,47 @@ function fileToBase64(file) {
 }
 
 async function send() {
-    const input = document.getElementById("file-input");
-    const files = input.files;
+  if (sending) return;
+  sending = true;
+  const input = document.getElementById("file-input");
+  const files = input.files;
 
-    const prompt = `The internet is a medium of how people can express themselves. 
-                They can use it for platforms like social media, shopping sites, 
-                music listening apps, and games, making it an every day reliance. 
-                The images provided are a person's presence or usage of the internet. 
-                Provide an identity report consisting of the following topics: 
-                (Personality, Behavior) and feel free to add additional topics
-                which best represent this person using the images provided.`;
+  const prompt = `The internet is a medium of how people can express themselves. 
+              They can use it for platforms like social media, shopping sites, 
+              music listening apps, and games, making it an every day reliance. 
+              The images provided are a person's presence or usage of the internet. 
+              Provide an identity report consisting of the following topics: 
+              (Personality, Behavior) and feel free to add additional topics
+              which best represent this person using the images provided.`;
 
-    const images = await filesToBase64Array(files);
+  const images = await filesToBase64Array(files);
 
-    const response = await fetch("https://internet-algorithmic-persona.vercel.app/api/backend", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt: prompt, images: images })
-    });
+  const response = await fetch("https://internet-algorithmic-persona.vercel.app/api/backend", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt: prompt, images: images })
+  });
 
-    try {
-        const data = await response.json();
-        if (!response.ok) console.log("oh no");
+  try {
+      const data = await response.json();
+      if (!response.ok) console.log("oh no");
 
-        dataP.style.display = "block";
+      dataP.style.display = "block";
 
-        const newString1 = data.result.replaceAll("***", "<br>");
-        const newString2 = data.result.replaceAll("**", "<br>");
-        const newString3 = data.result.replaceAll("*", "<br>");
+      const newString1 = data.result.replaceAll("***", "<br>");
+      const newString2 = data.result.replaceAll("**", "<br>");
+      const newString3 = data.result.replaceAll("*", "<br>");
 
-        dataP.innerHTML = newString3;
+      dataP.innerHTML = newString3;
 
-        tryAgainButton.style.display = "block";
-        // console.log(data.result); 
-    } catch (error) {
-      // console.log();
-        console.log(error);
-    }
+      tryAgainButton.style.display = "block";
+      // console.log(data.result); 
+  } catch (error) {
+    // console.log();
+      console.log(error);
+  }
+
+  sending = false;
 }
 
 getReportButton.addEventListener('click', () => send());
