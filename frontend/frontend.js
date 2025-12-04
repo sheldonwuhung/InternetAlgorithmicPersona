@@ -49,7 +49,7 @@ async function send() {
         if (!response.ok) console.log("oh no");
         console.log(data.result); 
     } catch (error) {
-      console.log(data);
+      console.log(response);
         console.log(error);
     }
 }
