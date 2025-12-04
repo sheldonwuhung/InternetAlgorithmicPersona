@@ -75,11 +75,11 @@ async function send() {
       dataP.style.display = "block";
       dataP.innerHTML = "Creating Identity Report...";
 
-      const newString1 = data.result.replaceAll("***", "<br>");
-      const newString2 = data.result.replaceAll("**", "<br>");
-      const newString3 = data.result.replaceAll("*", "<br>");
+      // const newString1 = data.result.replaceAll("***", "<br>");
+      // const newString2 = data.result.replaceAll("**", "<br>");
+      // const newString3 = data.result.replaceAll("*", "<br>");
 
-      dataP.innerHTML = newString3;
+      dataP.innerHTML = data.result;
 
       tryAgainButton.style.display = "block";
       // console.log(data.result); 
