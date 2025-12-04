@@ -41,7 +41,7 @@ async function send() {
     const response = await fetch("https://internet-algorithmic-persona.vercel.app/api/backend", {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt, images })
+        body: JSON.stringify({ prompt: prompt, images: images })
     });
 
     try {
