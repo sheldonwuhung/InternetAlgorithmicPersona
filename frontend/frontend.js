@@ -63,9 +63,10 @@ async function send() {
 
         dataP.style.display = "block";
 
-        const newString1 = data.result.replaceAll("***", "<br>");
-        const newString2 = data.result.replaceAll("**", "<br>");
-        dataP.innerHTML = newString2;
+        const newString1 = data.result.replaceAll("****", "<br>");
+        const newString2 = data.result.replaceAll("***", "<br>");
+        const newString3 = data.result.replaceAll("**", "<br>");
+        dataP.innerHTML = newString3;
 
         tryAgainButton.style.display = "block";
         // console.log(data.result); 
