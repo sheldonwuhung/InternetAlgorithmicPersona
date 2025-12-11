@@ -6,8 +6,8 @@ nav {
 
     width: 100vw;
     height: 7.5vh;
-    background-color: #515151;
-
+    background-color: #efccff;
+    background-image: linear-gradient(to top, #381143 0%, #230b2a 100%);
     display: grid;
     grid-template-columns: 50% 50%;
 
@@ -41,6 +41,7 @@ body {
     font-size: 1vw;
 
     background-color: #D9D9D9;
+    background-image: linear-gradient(15deg, #220e47 20%,#2c2851 100%);
 
     div.main-div {
 
@@ -69,8 +70,10 @@ body {
                 font-family: 'Space Mono', monospace;
                 text-align: center;
 
+                color: #efe6f4;
                 border-radius: 10px;
-                /* background-color: beige; */
+                border: 0px;
+                background-image: linear-gradient(45deg, #543789 20%,#6152e0 100%);
             }
 
             #data-p, #try-again-button {
@@ -85,11 +88,14 @@ body {
                 text-align: center;
 
                 border-radius: 10px;
-                /* background-color: beige; */
+                color: #efe6f4;
+                border-radius: 10px;
+                border: 0px;
+                background-image: linear-gradient(45deg, #543789 20%,#6152e0 100%);
             }
 
             #drop-zone-outer {
-                background-color: #969696;
+                background-color: #341c4d;
                 height: 50vh;
 
                 border-radius: 10px;
@@ -99,23 +105,25 @@ body {
                 z-index: 1;
 
                 #files-button {
-                    background-color: #6d6d6d;
-                    color: #c5c5c5;
                     font-size: 1.5em;
                     font-family: 'Space Mono', monospace;
                     text-align: center;
-                    border-radius: 10px;
                     padding: 5px;
+                    color: #efe6f4;
+                    border-radius: 10px;
+                    border: 0px;
+                    background-image: linear-gradient(45deg, #543789 20%,rgb(48, 40, 118) 100%);
                 }
 
                 #clear-button {
-                    background-color: #6d6d6d;
-                    color: #c5c5c5;
                     font-size: 1em;
                     font-family: 'Space Mono', monospace;
                     text-align: center;
-                    border-radius: 10px;
                     padding: 5px;
+                    color: #efe6f4;
+                    border-radius: 10px;
+                    border: 0px;
+                    background-image: linear-gradient(45deg, #543789 20%,rgb(48, 40, 118) 100%);
 
                     /* transform: translate(0, 200%); */
                 }
@@ -164,6 +172,14 @@ h1 {
     font-size: 2em;
     font-family: 'Martian Mono', monospace;
     text-align: left;
+    color:#ffffff;
+    background-image: linear-gradient(10deg, #f2e2f7 0%, #df80ff 100%);
+  
+    background-clip: text;
+    -webkit-background-clip: text;
+    
+    color: transparent;
+    -webkit-text-fill-color: transparent;
     /* background-color: beige; */
 }
 
@@ -171,6 +187,7 @@ h2 {
     font-size: 1.8em;
     font-family: 'Space Mono', monospace;
     text-align: left;
+    color: #ffffff;
     /* background-color: beige; */
 }
 
@@ -178,7 +195,7 @@ h3 {
     font-size: 1em;
     font-family: 'Martian Mono', monospace;
     text-align: left;
-    color: #D9D9D9;
+    color: #8400ff;
     /* background-color: beige; */
 }
 
@@ -186,6 +203,7 @@ p {
     font-size: 1.3em;
     font-family: 'Space Mono', monospace;
     text-align: left;
+    color: rgb(222, 197, 218);
     /* background-color: beige; */
 }
 
