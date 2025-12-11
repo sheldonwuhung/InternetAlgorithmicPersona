@@ -7,7 +7,7 @@ nav {
     width: 100vw;
     height: 7.5vh;
     background-color: #efccff;
-    background-image: linear-gradient(to top, #381143 0%, #230b2a 100%);
+    background-image: repeating-linear-gradient(15deg, #381143 5%, #230b2a 7%);
     display: grid;
     grid-template-columns: 50% 50%;
 
@@ -41,13 +41,14 @@ body {
     font-size: 1vw;
 
     background-color: #D9D9D9;
-    background-image: repeating-linear-gradient(15deg, #220e47 20%,#2c2851 50%);
+    background-image: repeating-linear-gradient(15deg, #220e47 20%,#2c2851 47.5%);
 
     div.main-div {
 
         z-index: 0;
 
         padding-top: 9vh;
+        padding-bottom: 10vh;
         width: 100vw;
 
         #section-3 {
@@ -61,6 +62,10 @@ body {
             * {
                 margin-top: 2%;
                 margin-bottom: 2%;
+            }
+
+            #identity-report-header {
+                display: none;
             }
 
             #get-started-button, #try-again-button {
@@ -166,6 +171,51 @@ body {
 
 }
 
+#popup-div {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .3);
+
+    z-index: 3;
+
+    /* * {border: solid 5px black} */
+
+    #popup-container {
+        width: 20%;
+        height: 10%;
+
+        margin-top: 40vh;
+        margin-bottom: 30vh;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 1.75%;
+        padding-top: 0%;
+
+        display: flex;
+        gap: 2.5%;
+        font-size: em;
+        border: 0px;
+        border-radius: 5px;
+        
+        background-color: #503c76;
+
+        #popup-button {
+            margin-top: auto;
+            margin-bottom: auto;
+            height: 50%;
+            
+            border: 0px;
+            border-radius: 2px;
+
+            background-color: rgb(70, 21, 81);
+            color: #ffffff;
+        }
+
+    }
+    
+}
 
 h1 {
     /* margin-top: 7.5%; */
@@ -173,7 +223,7 @@ h1 {
     font-family: 'Martian Mono', monospace;
     text-align: left;
     color:#ffffff;
-    background-image: linear-gradient(10deg, #f2e2f7 0%, #df80ff 100%);
+    background-image: linear-gradient(10deg, #f2e2f7 0%, #5456ff 100%);
   
     background-clip: text;
     -webkit-background-clip: text;
@@ -195,7 +245,7 @@ h3 {
     font-size: 1em;
     font-family: 'Martian Mono', monospace;
     text-align: left;
-    color: #8400ff;
+    color: #c17eff;
     /* background-color: beige; */
 }
 

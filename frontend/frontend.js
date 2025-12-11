@@ -1,6 +1,14 @@
 const dataP = document.getElementById("data-p");
 const tryAgainButton = document.getElementById("try-again-button");
 const getReportButton = document.getElementById("get-report-button");
+const identityReportHeader = document.getElementById("identity-report-header");
+
+const popupDiv = document.getElementById("popup-div");
+const popupContainer = document.getElementById("popup-container");
+const popupButton = document.getElementById("popup-button");
+
+const popupItems = [popupDiv, popupContainer, popupButton];
+
 const header_2 = document.getElementById("first-scroll");
 
 let sending = false;
@@ -39,14 +47,41 @@ function fileToBase64(file) {
   });
 }
 
+function changeReportButtonText() {
+  getReportButton.innerHTML = "Please submit at least one file";
+  setTimeout(() => {
+    getReportButton.innerHTML = "Get Your Identity Report";
+  }, 2000);
+}
+
+function togglePopup(statement) {
+  let displayType = "none";
+
+  popupItems.forEach(item => {
+
+    if (statement) displayType = "block";
+    if (item == popupContainer) displayType = "flex";
+
+    item.style.display = displayType;
+  });
+}
 async function send() {
   if (sending) {
     console.log("Please wait before submitting another request");
     return;
   }
+
   sending = true;
   const input = document.getElementById("file-input");
   const files = input.files;
+
+  if (files.length == 0) {
+    sending = false;
+    console.log("Please submit at least one file!")
+    // changeReportButtonText();
+    togglePopup(true);
+    return;
+  }
 
   dataP.style.display = "block";
   dataP.textContent = "Creating Identity Report...";
@@ -78,6 +113,7 @@ async function send() {
 
       dataP.innerHTML = data.result;
 
+      identityReportHeader.display = "block"
       tryAgainButton.style.display = "inline";
       // console.log(data.result); 
   } catch (error) {
@@ -90,3 +126,4 @@ async function send() {
 
 getReportButton.addEventListener('click', () => send());
 tryAgainButton.addEventListener('click', () => tryAgain());
+popupButton.addEventListener('click', () => togglePopup(false));
