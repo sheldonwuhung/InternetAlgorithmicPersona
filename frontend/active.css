@@ -7,7 +7,9 @@ nav {
     width: 100vw;
     height: 7.5vh;
     background-color: #efccff;
-    background-image: repeating-linear-gradient(15deg, #381143 5%, #230b2a 7%);
+    background:
+        repeating-linear-gradient(30deg, #381143 0%, #230b2a 60%),
+        repeating-linear-gradient(30deg, #9044a576 60%, #4e3b54a4 60%);
     display: grid;
     grid-template-columns: 50% 50%;
 
@@ -41,7 +43,16 @@ body {
     font-size: 1vw;
 
     background-color: #D9D9D9;
-    background-image: repeating-linear-gradient(15deg, #220e47 20%,#2c2851 47.5%);
+    /* background-image: repeating-linear-gradient(15deg, #220e47 20%,#2c2851 47.5%); */
+
+    background-image: 
+        repeating-radial-gradient(circle at 50% 80%, rgba(34, 14, 71, .75) 1%,rgba(44, 40, 81, .75) 77%),
+        repeating-radial-gradient(circle at 80% 20%, rgba(34, 14, 71, 1) 10%,rgba(44, 40, 81, .75) 100%),
+        repeating-radial-gradient(circle at 0% 60%, rgba(34, 14, 71, 1) 10%,rgba(44, 40, 81, 0) 100%),
+        repeating-radial-gradient(circle at 30% 30%, rgba(34, 14, 71, 0.5) 10%,rgba(44, 40, 81, 0.5) 100%);
+
+        /* repeating-linear-gradient(0deg, rgba(34, 14, 71, .75) 20%,rgba(44, 40, 81, .75) 60%); */
+        /* repeating-conic-gradient(#220e47 30deg,#2c2851 90deg); */
 
     div.main-div {
 
