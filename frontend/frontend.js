@@ -121,7 +121,7 @@ async function send() {
   if (files.length == 0) {
     sending = false;
     console.log("Please submit at least one file!")
-    // changeReportButtonText();
+    changeReportButtonText();
     togglePopup(true);
     return;
   }

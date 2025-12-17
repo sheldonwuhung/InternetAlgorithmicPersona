@@ -10,7 +10,7 @@
     initial-value: 0.75;
 }
 
-@keyframes background-shift {
+@keyframes background-shift-body {
     0% {
         background-position: 0% 00%;
     }
@@ -37,9 +37,13 @@ nav {
     width: 100vw;
     height: 7.5vh;
     background-color: #efccff;
-    background:
+
+    background-image:
+        repeating-linear-gradient(30deg, #381143 0%, #230b2a 60%),
+        repeating-linear-gradient(30deg, #9044a576 60%, #4e3b54a4 60%),
         repeating-linear-gradient(30deg, #381143 0%, #230b2a 60%),
         repeating-linear-gradient(30deg, #9044a576 60%, #4e3b54a4 60%);
+
     display: grid;
     grid-template-columns: 50% 50%;
 
@@ -76,7 +80,7 @@ body {
     /* background-image: repeating-linear-gradient(15deg, #220e47 20%,#2c2851 47.5%); */
 
     background-size: 102% 102%;
-    animation: background-shift 10s linear infinite;
+    animation: background-shift-body 10s linear infinite;
     
     background-image: 
         repeating-radial-gradient(circle at 50% 80%, rgba(34, 14, 71, var(--b)) 1%,rgba(44, 40, 81, .75) 77%),
@@ -284,19 +288,25 @@ body {
 }
 
 h1 {
-    /* margin-top: 7.5%; */
-    font-size: 2em;
-    font-family: 'Martian Mono', monospace;
-    text-align: left;
-    color:#ffffff;
-    background-image: linear-gradient(10deg, #f2e2f7 0%, #5456ff 100%);
-  
-    background-clip: text;
-    -webkit-background-clip: text;
-    
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    /* background-color: beige; */
+  font-size: 2em;
+  font-family: 'Martian Mono', monospace;
+  text-align: left;
+
+  background-image: linear-gradient(90deg, #f2e2f7 0%, #6152e0 40%, #543789 70%, #f2e2f7 100%);
+  background-size: 200% 200%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientShift 6s linear infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 h2 {
