@@ -25,26 +25,69 @@ async function filesToBase64Array(files) {
   const base64Array = [];
 
   for (const file of files) {
-    const base64 = await fileToBase64(file);
-    const fileType = file.type;
-    console.log(file.type);
-    base64Array.push({
-      mimeType: fileType,
-      data: base64
-    });
+    const base64 = await fileToResizedBase64(file, 1024, 1024, 0.8);
+    if (!base64) continue;
+
+    // prefer standard mime for jpeg
+    let mime = file.type || inferMimeFromName(file.name);
+    if (mime === 'image/png') mime = 'image/jpeg';
+
+    base64Array.push({ mimeType: mime, data: base64 });
   }
 
   return base64Array;
 }
 
-function fileToBase64(file) {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () =>
-      resolve(reader.result.split(",")[1]); 
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
+function inferMimeFromName(name) {
+  const ext = name.split('.').pop()?.toLowerCase();
+  if (!ext) return 'application/octet-stream';
+  if (ext === 'jpg') return 'image/jpeg';
+  if (ext === 'jpeg') return 'image/jpeg';
+  if (ext === 'png') return 'image/png';
+  if (ext === 'webp') return 'image/webp';
+  if (ext === 'gif') return 'image/gif';
+  if (ext === 'svg') return 'image/svg+xml';
+  return 'application/octet-stream';
+}
+
+async function fileToResizedBase64(file, maxWidth = 1024, maxHeight = 1024, quality = 0.8) {
+  if (!file.type && !file.name) return null;
+  if (!file.type.startsWith('image/') && !file.name.match(/\.(png|jpe?g|webp|gif|svg)$/i)) return null;
+
+  // load image into an HTMLImageElement
+  const dataUrl = await new Promise((res, rej) => {
+    const fr = new FileReader();
+    fr.onload = () => res(fr.result);
+    fr.onerror = rej;
+    fr.readAsDataURL(file);
   });
+
+  // If SVG, skip canvas conversion and return raw base64 (SVG is text+xml)
+  if ((file.type && file.type === 'image/svg+xml') || (file.name && file.name.toLowerCase().endsWith('.svg'))) {
+    return dataUrl.split(',')[1];
+  }
+
+  const img = await new Promise((res, rej) => {
+    const i = new Image();
+    i.onload = () => res(i);
+    i.onerror = rej;
+    i.src = dataUrl;
+  });
+
+  const ratio = Math.min(1, maxWidth / img.width, maxHeight / img.height);
+  const nw = Math.max(1, Math.round(img.width * ratio));
+  const nh = Math.max(1, Math.round(img.height * ratio));
+
+  const canvas = document.createElement('canvas');
+  canvas.width = nw;
+  canvas.height = nh;
+  const ctx = canvas.getContext('2d');
+  ctx.drawImage(img, 0, 0, nw, nh);
+
+  // Convert PNGs to JPEG to save size (no transparency preserved)
+  const outputMime = (file.type === 'image/png' ? 'image/jpeg' : (file.type || inferMimeFromName(file.name)));
+  const outDataUrl = canvas.toDataURL(outputMime, quality);
+  return outDataUrl.split(',')[1];
 }
 
 function changeReportButtonText() {
