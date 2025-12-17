@@ -1,3 +1,33 @@
+@property --a{
+    syntax: "*";
+    inherits: false;
+    initial-value: 1;
+}
+
+@property --b{
+    syntax: "*";
+    inherits: false;
+    initial-value: 0.75;
+}
+
+@keyframes background-shift {
+    0% {
+        background-position: 0% 00%;
+    }
+    25% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 0% 100%;
+    }
+    75% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
 nav {
     top: 0;
 
@@ -45,11 +75,15 @@ body {
     background-color: #D9D9D9;
     /* background-image: repeating-linear-gradient(15deg, #220e47 20%,#2c2851 47.5%); */
 
+    background-size: 102% 102%;
+    animation: background-shift 10s linear infinite;
+    
     background-image: 
-        repeating-radial-gradient(circle at 50% 80%, rgba(34, 14, 71, .75) 1%,rgba(44, 40, 81, .75) 77%),
-        repeating-radial-gradient(circle at 80% 20%, rgba(34, 14, 71, 1) 10%,rgba(44, 40, 81, .75) 100%),
-        repeating-radial-gradient(circle at 0% 60%, rgba(34, 14, 71, 1) 10%,rgba(44, 40, 81, 0) 100%),
-        repeating-radial-gradient(circle at 30% 30%, rgba(34, 14, 71, 0.5) 10%,rgba(44, 40, 81, 0.5) 100%);
+        repeating-radial-gradient(circle at 50% 80%, rgba(34, 14, 71, var(--b)) 1%,rgba(44, 40, 81, .75) 77%),
+        repeating-radial-gradient(circle at 80% 20%, rgba(34, 14, 71, var(--a)) 10%,rgba(44, 40, 81, .75) 100%),
+        repeating-radial-gradient(circle at 0% 60%, rgba(34, 14, 71, var(--a)) 10%,rgba(44, 40, 81, 0) 100%),
+        repeating-radial-gradient(circle at 102% 82%, rgba(34, 14, 71, var(--a)) 10%,rgba(44, 40, 81, 0) 100%);
+        /* repeating-radial-gradient(circle at 40% 30%, rgba(34, 14, 71, 0.5) 10%,rgba(44, 40, 81, 0.5) 100%); */
 
         /* repeating-linear-gradient(0deg, rgba(34, 14, 71, .75) 20%,rgba(44, 40, 81, .75) 60%); */
         /* repeating-conic-gradient(#220e47 30deg,#2c2851 90deg); */
@@ -90,6 +124,18 @@ body {
                 border-radius: 10px;
                 border: 0px;
                 background-image: linear-gradient(45deg, #543789 20%,#6152e0 100%);
+
+                transition: 150ms ease;
+            }
+
+            #get-started-button:hover, #try-again-button:hover {
+                width: 14%;
+                background-image: linear-gradient(45deg, #6152e0 20%, #543789 100%);
+            }
+
+            #get-report-button:hover {
+                width: 25%;
+                background-image: linear-gradient(45deg, #6152e0 20%, #543789 100%);
             }
 
             #data-p, #try-again-button {
@@ -108,6 +154,8 @@ body {
                 border-radius: 10px;
                 border: 0px;
                 background-image: linear-gradient(45deg, #543789 20%,#6152e0 100%);
+
+                transition: 150ms ease;
             }
 
             #drop-zone-outer {
@@ -129,6 +177,8 @@ body {
                     border-radius: 10px;
                     border: 0px;
                     background-image: linear-gradient(45deg, #543789 20%,rgb(48, 40, 118) 100%);
+
+                    transition: 150ms ease;
                 }
 
                 #clear-button {
@@ -141,7 +191,12 @@ body {
                     border: 0px;
                     background-image: linear-gradient(45deg, #543789 20%,rgb(48, 40, 118) 100%);
 
+                    transition: 150ms ease;
                     /* transform: translate(0, 200%); */
+                }
+
+                #clear-button:hover, #files-button:hover {
+                    background-image: linear-gradient(45deg, rgb(48, 40, 118) 20%,#543789 100%);
                 }
             }
 

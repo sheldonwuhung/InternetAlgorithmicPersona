@@ -27,7 +27,7 @@ async function filesToBase64Array(files) {
   for (const file of files) {
     const base64 = await fileToBase64(file);
     const fileType = file.type;
-
+    console.log(file.type);
     base64Array.push({
       mimeType: fileType,
       data: base64
