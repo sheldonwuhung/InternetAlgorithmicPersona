@@ -177,7 +177,8 @@ async function send() {
               
               Presentation Instructions: Create a personality based on the data presented and then 
               present the information using this personality. For example, if the data shows a lot 
-              of cute stuff, present the information in a cute manner.`;
+              of cute stuff, present the information in a cute manner. If there is a mix of data, create
+              a mixed personality. In addition, use incorporate gen-z language.`;
 
   const images = await filesToBase64Array(files);
 
