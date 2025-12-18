@@ -196,7 +196,7 @@ async function send() {
       dataP.style.textAlign = "left";
       dataP.style.transform = "translate(0, 0)";
       dataP.style.paddingBottom = "0";
-
+      dataP.style.backgroundImage = "repeating-linear-gradient(15deg, #220e47 20%,#2c2851 47.5%)";
       let paragraphs = dataP.querySelectorAll('p');
 
       paragraphs.forEach(p => {

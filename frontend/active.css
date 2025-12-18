@@ -362,6 +362,7 @@ p.report-section {
     text-align: left;
     color: rgb(222, 197, 218);
     background-color: #543789;
+    background-image: linear-gradient(15deg, #220e47 20%,#2c2851 70.5%);
 }
 
 @keyframes circle-animation {
