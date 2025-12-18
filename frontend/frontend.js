@@ -3,6 +3,9 @@ const tryAgainButton = document.getElementById("try-again-button");
 const getReportButton = document.getElementById("get-report-button");
 const getStartedButton = document.getElementById("get-started-button");
 const identityReportHeader = document.getElementById("identity-report-header");
+const input = document.getElementById("file-input");
+
+input.value = "";
 
 const nav = document.getElementById("nav");
 const navHeight = nav.getBoundingClientRect().height;
@@ -141,7 +144,6 @@ async function send() {
   }
 
   sending = true;
-  const input = document.getElementById("file-input");
   const files = input.files;
 
   if (files.length == 0) {
@@ -186,9 +188,9 @@ async function send() {
       identityReportHeader.display = "block"
       tryAgainButton.style.display = "inline";
       loadAnimationContainer.style.display = "none";
-      
+
       dataP.innerHTML = data.result;
-      dataP.style.fontSize = ".7em";
+      dataP.style.fontSize = "1.1em";
       dataP.style.textAlign = "left";
       dataP.style.transform = "";
       dataP.style.paddingBottom = "0%";
