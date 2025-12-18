@@ -1,7 +1,15 @@
 const dataP = document.getElementById("data-p");
 const tryAgainButton = document.getElementById("try-again-button");
 const getReportButton = document.getElementById("get-report-button");
+const getStartedButton = document.getElementById("get-started-button");
 const identityReportHeader = document.getElementById("identity-report-header");
+
+const nav = document.getElementById("nav");
+const navHeight = nav.getBoundingClientRect().height;
+const header = document.getElementById("first-scroll");
+
+const navButtons = [getStartedButton, getReportButton, tryAgainButton];
+const windowLocations = [header, dataP, header];
 
 const popupDiv = document.getElementById("popup-div");
 const popupContainer = document.getElementById("popup-container");
@@ -15,31 +23,28 @@ const circle3 = document.getElementById("circle3");
 const popupItems = [popupDiv, popupContainer, popupButton];
 const circles = [circle1, circle2, circle3];
 
-const header_2 = document.getElementById("first-scroll");
-
 let sending = false;
 
-function tryAgain() {
-  window.location.reload()
+function ChangeWindowLocation (index) {
+    const location = windowLocations[index].getBoundingClientRect();
+    let y = location.top + window.scrollY - navHeight -10;    
+    window.scrollTo({ top: y, left: 0, behavior: 'smooth' });
+};
 
-  const location = header_2.getBoundingClientRect();
-  let y = location.top + window.scrollY;
-  window.scrollTo({ top: y, left: 0, behavior: 'smooth' });
-}
-
-let i = -1;
+let i = 0;
 
 function loadAnimation() {
-  i++;
   if (i>2) {
     i = 0; 
-    if (!sending) {i = -1; return;}
+    if (!sending) return;
   }
   circles[i].style.animationPlayState = "running";
+  
   setTimeout(() => {
     circles[i].style.animationPlayState = "paused";
     loadAnimation();
-  }, 2000);
+  }, 950);
+  i++;
 } 
 
 async function filesToBase64Array(files) {
@@ -151,7 +156,7 @@ async function send() {
   loadAnimation();
 
   dataP.style.display = "block";
-  dataP.textContent = "Creating Identity Report...";
+  dataP.innerHTML = "Creating Identity Report";
 
   const prompt = `Prompt Instructions: The internet is a medium of how people can express themselves. 
               They can use it for platforms like social media, shopping sites, 
@@ -179,13 +184,13 @@ async function send() {
       if (!response.ok) console.log("oh no");
 
       dataP.innerHTML = data.result;
+      dataP.style.fontSize = "1.3em";
+      dataP.style.textAlign = "left";
 
       identityReportHeader.display = "block"
       tryAgainButton.style.display = "inline";
       loadAnimationContainer.style.display = "none";
-      // console.log(data.result); 
   } catch (error) {
-    // console.log();
       console.log(error);
   }
 
@@ -193,5 +198,9 @@ async function send() {
 }
 
 getReportButton.addEventListener('click', () => send());
-tryAgainButton.addEventListener('click', () => tryAgain());
 popupButton.addEventListener('click', () => togglePopup(false));
+
+navButtons.forEach((button, index) => {
+    if (!button) return;
+    button.addEventListener('click', () => ChangeWindowLocation(index));
+});
