@@ -192,8 +192,8 @@ async function send() {
       dataP.innerHTML = data.result;
       dataP.style.fontSize = "1.1em";
       dataP.style.textAlign = "left";
-      dataP.style.transform = "";
-      dataP.style.paddingBottom = "0%";
+      dataP.style.transform = "translate: (0,0)";
+      dataP.style.paddingBottom = "5vh";
   } catch (error) {
       console.log(error);
   }
