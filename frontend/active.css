@@ -87,6 +87,7 @@ body {
         repeating-radial-gradient(circle at 80% 20%, rgba(34, 14, 71, var(--a)) 10%,rgba(44, 40, 81, .75) 100%),
         repeating-radial-gradient(circle at 0% 60%, rgba(34, 14, 71, var(--a)) 10%,rgba(44, 40, 81, 0) 100%),
         repeating-radial-gradient(circle at 102% 82%, rgba(34, 14, 71, var(--a)) 10%,rgba(44, 40, 81, 0) 100%);
+        /* repeating-linear-gradient(15deg, rgba(34, 14, 71, .75) 20%,rgba(44, 40, 81, .75) 60%); */
         /* repeating-radial-gradient(circle at 40% 30%, rgba(34, 14, 71, 0.5) 10%,rgba(44, 40, 81, 0.5) 100%); */
 
         /* repeating-linear-gradient(0deg, rgba(34, 14, 71, .75) 20%,rgba(44, 40, 81, .75) 60%); */

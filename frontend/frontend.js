@@ -190,7 +190,7 @@ async function send() {
       loadAnimationContainer.style.display = "none";
 
       dataP.innerHTML = data.result;
-      dataP.style.fontSize = "1.3em";
+      dataP.style.fontSize = "1em";
       dataP.style.textAlign = "left";
       dataP.style.transform = "translate(0, 0)";
       dataP.style.paddingBottom = "0";
