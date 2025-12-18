@@ -170,7 +170,8 @@ async function send() {
               
               Technical Instructions: The identity report should be split into the following
               topics if applicable: (Personality, Communities). Add a maximum of 5 additional 
-              topics which best represent this person using the images provided. This text will 
+              topics which best represent this person using the images provided. Size paragraph headers
+              slightly larger than the paragraph text which would be 1em. This text will 
               be put into an innerHTML of a paragraph HTML element. Provide proper spacing between
               paragraphs which should be done through padding or margins. Use proper HTML syntax such 
               as putting words in between <b> and </b> to bold them instead of using astericks. 
@@ -197,7 +198,7 @@ async function send() {
       loadAnimationContainer.style.display = "none";
 
       dataP.innerHTML = data.result;
-      dataP.style.fontSize = "1em";
+      // dataP.style.fontSize = "1em";
       dataP.style.textAlign = "left";
       dataP.style.transform = "translate(0, 0)";
       dataP.style.paddingBottom = "0";
