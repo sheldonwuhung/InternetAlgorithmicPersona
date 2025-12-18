@@ -29,6 +29,8 @@ const circles = [circle1, circle2, circle3];
 let sending = false;
 
 function ChangeWindowLocation (index) {
+    if (index == 2) window.location.reload();
+
     const location = windowLocations[index].getBoundingClientRect();
     let y = location.top + window.scrollY - navHeight -10;    
     window.scrollTo({ top: y, left: 0, behavior: 'smooth' });
