@@ -167,9 +167,9 @@ async function send() {
               Technical Instructions: The identity report should be split into the following
               topics if applicable: (Personality, Communities). Add a maximum of 5 additional 
               topics which best represent this person using the images provided. This text will 
-              be put into an innerHTML of a paragraph HTML element. Provide proper line breaks 
-              within this text in the form of "<br>". Use proper HTML syntax such as putting words 
-              in between <b> and </b> to bold them instead of using astericks`;
+              be put into an innerHTML of a paragraph HTML element. Provide proper spacing between
+              paragraphs should be done through padding or margins. Use proper HTML syntax such 
+              as putting words in between <b> and </b> to bold them instead of using astericks`;
 
   const images = await filesToBase64Array(files);
 
@@ -186,6 +186,8 @@ async function send() {
       dataP.innerHTML = data.result;
       dataP.style.fontSize = "1.3em";
       dataP.style.textAlign = "left";
+      dataP.style.transform = "";
+      dataP.style.paddingBottom = "0%";
 
       identityReportHeader.display = "block"
       tryAgainButton.style.display = "inline";

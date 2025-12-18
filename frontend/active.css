@@ -145,7 +145,11 @@ body {
                 background-image: linear-gradient(45deg, #6152e0 20%, #543789 100%);
             }
 
-            #data-p, #try-again-button {
+            #try-again-button {
+                display:none;
+            }
+
+            #data-p {
                 display:none;
                 font-size: 1.8em;
                 text-align: center;    
