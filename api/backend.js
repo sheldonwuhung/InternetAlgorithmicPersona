@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         }
         console.log(parts);
         const result = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
+            model: "gemini-3-flash",
             contents: createUserContent([prompt, ...parts])
         });
 
