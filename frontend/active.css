@@ -356,6 +356,14 @@ p {
     color: rgb(222, 197, 218);
 }
 
+p.report-section {
+    font-size: 1em;
+    font-family: 'Space Mono', monospace;
+    text-align: left;
+    color: rgb(222, 197, 218);
+    background-color: #543789;
+}
+
 @keyframes circle-animation {
     0%{
         transform: translate(0,-250%);
