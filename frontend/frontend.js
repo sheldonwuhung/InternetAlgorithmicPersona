@@ -197,11 +197,11 @@ async function send() {
       dataP.style.transform = "translate(0, 0)";
       dataP.style.paddingBottom = "0";
 
-      let paragraphs = dataP.querySelectorAll('p');
+      // let paragraphs = dataP.querySelectorAll('p');
 
-      paragraphs.forEach(p => {
-        p.className = "report-section";
-      });
+      // paragraphs.forEach(p => {
+      //   p.className = "report-section";
+      // });
   } catch (error) {
       console.log(error);
   }
