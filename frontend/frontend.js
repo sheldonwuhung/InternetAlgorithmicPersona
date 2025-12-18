@@ -172,8 +172,8 @@ async function send() {
               topics if applicable: (Personality, Communities). Add a maximum of 5 additional 
               topics which best represent this person using the images provided. This text will 
               be put into an innerHTML of a paragraph HTML element. Provide proper spacing between
-              paragraphs should be done through padding or margins.
-              Use proper HTML syntax such as putting words in between <b> and </b> to bold them instead of using astericks`;
+              paragraphs should be done through padding or margins. Use proper HTML syntax such 
+              as putting words in between <b> and </b> to bold them instead of using astericks`;
 
   const images = await filesToBase64Array(files);
 
@@ -202,7 +202,6 @@ async function send() {
       paragraphs.forEach(p => {
         p.className = "report-section";
       });
-
   } catch (error) {
       console.log(error);
   }
