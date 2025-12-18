@@ -32,8 +32,8 @@ let i = -1;
 function loadAnimation() {
   i++;
   if (i>2) {
-    i = -1; 
-    if (!sending) return;
+    i = 0; 
+    if (!sending) {i = -1; return;}
   }
   circles[i].style.animationPlayState = "running";
   setTimeout(() => {
