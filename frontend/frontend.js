@@ -7,7 +7,13 @@ const popupDiv = document.getElementById("popup-div");
 const popupContainer = document.getElementById("popup-container");
 const popupButton = document.getElementById("popup-button");
 
+const loadAnimationContainer = document.getElementById("loading-container");
+const circle1 = document.getElementById("circle1");
+const circle2 = document.getElementById("circle2");
+const circle3 = document.getElementById("circle3");
+
 const popupItems = [popupDiv, popupContainer, popupButton];
+const circles = [circle1, circle2, circle3];
 
 const header_2 = document.getElementById("first-scroll");
 
@@ -20,6 +26,21 @@ function tryAgain() {
   let y = location.top + window.scrollY;
   window.scrollTo({ top: y, left: 0, behavior: 'smooth' });
 }
+
+let i = -1;
+
+function loadAnimation() {
+  i++;
+  if (i>2) {
+    i = -1; 
+    if (!sending) return;
+  }
+  circles[i].style.animationPlayState = "running";
+  setTimeout(() => {
+    circles[i].style.animationPlayState = "paused";
+    loadAnimation();
+  }, 2000);
+} 
 
 async function filesToBase64Array(files) {
   const base64Array = [];
@@ -102,7 +123,7 @@ function togglePopup(statement) {
 
   popupItems.forEach(item => {
 
-    if (statement) displayType = "block";
+    if (statement) displayType = "flex";
     if (item == popupContainer) displayType = "flex";
 
     item.style.display = displayType;
@@ -120,11 +141,14 @@ async function send() {
 
   if (files.length == 0) {
     sending = false;
-    console.log("Please submit at least one file!")
+    console.log("Please submit at least one file!");
     changeReportButtonText();
     togglePopup(true);
     return;
   }
+
+  loadAnimationContainer.style.display = "flex";
+  loadAnimation();
 
   dataP.style.display = "block";
   dataP.textContent = "Creating Identity Report...";
@@ -158,6 +182,7 @@ async function send() {
 
       identityReportHeader.display = "block"
       tryAgainButton.style.display = "inline";
+      loadAnimationContainer.style.display = "none";
       // console.log(data.result); 
   } catch (error) {
     // console.log();

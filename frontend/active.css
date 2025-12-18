@@ -333,6 +333,35 @@ p {
     /* background-color: beige; */
 }
 
+@keyframes circle-animation {
+    0%{
+        transform: translate(0,0%);
+    }
+    50% {
+        transform: translate(0,100%);
+    }
+    100% {
+        transform: translate(0,0%);
+    }
+}
+
+#loading-container {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    gap: 5%;
+}
+
+.circle {
+    width: 2.5em;
+    height: 2.5em;
+    background-color: #503c76;
+    border-radius: 50%;
+
+    animation: circle-animation 2s ease infinite;
+    animation-play-state: paused;
+}
+
 .grid-center {
     display: grid;
     place-items: center;
