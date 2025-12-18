@@ -197,7 +197,8 @@ async function send() {
       dataP.style.transform = "translate(0, 0)";
       dataP.style.paddingBottom = "0";
 
-      let paragraphs = dataP.children
+      let paragraphs = dataP.children;
+      console.log(paragraphs);
 
       paragraphs.forEach(p => {
         if (p instanceof HTMLParagraphElement) {
