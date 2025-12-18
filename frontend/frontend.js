@@ -183,15 +183,15 @@ async function send() {
       const data = await response.json();
       if (!response.ok) console.log("oh no");
 
-      dataP.innerHTML = data.result;
-      dataP.style.fontSize = "1.3em";
-      dataP.style.textAlign = "left";
-      dataP.style.transform = "";
-      dataP.style.paddingBottom = "0%";
-
       identityReportHeader.display = "block"
       tryAgainButton.style.display = "inline";
       loadAnimationContainer.style.display = "none";
+      
+      dataP.innerHTML = data.result;
+      dataP.style.fontSize = ".7em";
+      dataP.style.textAlign = "left";
+      dataP.style.transform = "";
+      dataP.style.paddingBottom = "0%";
   } catch (error) {
       console.log(error);
   }
