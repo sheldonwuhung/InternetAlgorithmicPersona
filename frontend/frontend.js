@@ -173,8 +173,11 @@ async function send() {
               topics which best represent this person using the images provided. This text will 
               be put into an innerHTML of a paragraph HTML element. Provide proper spacing between
               paragraphs which should be done through padding or margins. Use proper HTML syntax such 
-              as putting words in between <b> and </b> to bold them instead of using astericks. Present
-              the information casually and speak to the user with gen-z language.`;
+              as putting words in between <b> and </b> to bold them instead of using astericks. 
+              
+              Presentation Instructions: Create a personality based on the data presented and then 
+              present the information using this personality. For example, if the data shows a lot 
+              of cute stuff, present the information in a cute manner.`;
 
   const images = await filesToBase64Array(files);
 
